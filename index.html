@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de XV Años</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f4e1f1;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            opacity: 0; /* Inicialmente ocultamos el body para aplicar animación de fade in */
+            animation: fadeInAnimation 2s ease-in-out forwards; /* Animación de fade in */
+            background-image: url('flores7.jpg');
+            background-repeat: repeat-y; /* Repetir solo verticalmente */
+            background-size: auto 100%; /* Ajustar tamaño verticalmente */
+        }
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9); /* Color de fondo para destacar el contenido */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        .header {
+            background-color: #b57edc;
+            color: white;
+            padding: 50px 20px;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 10em;
+            font-weight: normal;
+            font-family: 'Dancing Script', cursive; /* Fuente Dancing Script */
+            text-align: center;
+        }
+        .content {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            position: relative;
+        }
+        .content h2 {
+            font-size: 2.5em;
+            color: #b57edc;
+        }
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            font-family: 'Comfortaa', cursive; /* Cambio de fuente a Comfortaa */
+            color: #ac51b4;
+        }
+        .footer {
+            background-color: #b57edc;
+            color: white;
+            padding: 30px 20px;
+            margin-top: 30px;
+            font-family: 'Pacifico', cursive; /* Aplica la fuente Pacifico al footer */
+            text-align: center;
+        }
+        .footer p {
+            margin: 0;
+        }
+
+
+        /* Media query para dispositivos móviles */
+        @media only screen and (max-width: 600px) {
+            .header h1 {
+                font-size: 3.5em; /* Reducir tamaño del título en dispositivos móviles */
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .footer {
+                padding: 20px;
+            }
+        }
+
+        /* Estilo para el contenedor del verso */
+        .verse-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f0e0f0; /* Color de fondo */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+
+        /* Estilos adicionales para los elementos de texto dentro del contenedor */
+        .verse-container p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            font-family: 'Comfortaa', cursive; /* Fuente Comfortaa */
+            color: #ac51b4;
+        }
+        /* Estilo para elementos que se mostrarán gradualmente */
+        .fade-in {
+            opacity: 0; /* Inicialmente ocultos */
+            transition: opacity 5s ease-in-out; /* Transición suave */
+        }
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .mySlides {
+            display: none;
+            width: 100%;
+        }
+        .slideshow-img {
+            width: 100%;
+            height: auto;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev {
+            left: 0; /* Ajuste para alinear a la izquierda */
+            border-radius: 3px 0 0 3px; /* Ajuste del radio de borde para la esquina izquierda */
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .location {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .countdown {
+            margin-top: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comfortaa', cursive; /* Fuente Comfortaa para la cuenta regresiva */
+        }     
+        .countdown-item {
+            text-align: center;
+            margin: 0 10px;
+            background-color: #f0e0f0; /* Color de fondo */
+            padding: 10px; /* Espacio interno */
+            border-radius: 5px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+        .countdown-label {
+            font-size: 1.5em;
+            color: #a15fa7;
+            text-transform: uppercase;
+        }
+        /* Estilo adicional para los elementos de la cuenta regresiva */
+        .countdown-item span {
+            display: block;
+            font-size: 0.8em;
+            margin-top: 5px;
+            font-weight: normal;
+        }  
+        .flower-decoration {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1; /* Para asegurarse de que las flores estén detrás del texto */
+            opacity: 0.5; /* Ajusta la opacidad según sea necesario */
+            width: 100%; /* Ajusta el tamaño según el diseño */
+            max-width: 1200px; /* Limita el ancho máximo para que no se estire demasiado */
+        }
+        #myAudio {
+            display: none; /* Oculta el elemento de audio */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body onload="playAudio()">
+    <div class="container">
+        <div class="header">
+            <h1>Danna</h1>
+        </div>
+        <div class="content fade-in">
+            <h1 style="font-size: 2em;  color: #b57edc; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"><em>Te invito a celebrar mis XV años</em></h1>
+
+            <!-- Carrusel de imágenes -->
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="1.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="2.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="3.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="4.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="5.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="6.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="7.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="8.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="9.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="10.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="11.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="12.JPG" class="slideshow-img">
+                </div>
+                <div class="mySlides">
+                    <img src="13.JPG" class="slideshow-img">
+                </div>
+                
+                <!-- Botones de navegación -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <p>Es muy importante para mí tener la bendición de Dios:</p>
+            <div class="verse-container">
+                <p><strong><em>"Porque tú poseiste mis riñones; Cubrísteme en el vientre de mi madre. Te alabaré; porque formidables, maravillosas son tus obras: Estoy maravillado, Y mi alma lo conoce mucho.”</em></strong></p>
+                <p><strong><em>Salmos 139: 13 y 14.</strong></em></p>
+            </div>
+            <!-- <p><strong>Domingo</strong><br>14 de Julio de 2024<br>12:30 hrs</p> -->
+            <p style="font-size: 2em; font-weight: bold; color: #b57edc; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Domingo <br> 14 de Julio del 2024</p>
+
+            
+            <p><strong>Acompáñame en:</strong><br>Iglesia "Sardis"<br>Av. Antonio Chedraui Caram #26 - Col. Casa Blanca.</p>
+            <div class="location">
+                <!-- Aquí puedes poner la imagen de la iglesia si deseas -->
+                <img src="iglesia.jpeg" class="slideshow-img">
+                <!-- Aquí puedes insertar el mapa de Google Maps -->
+                <!-- Ejemplo de cuadro para ubicación de Google Maps -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d235.00023083215407!2d-96.896104!3d19.541455!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDMyJzI5LjEiTiA5NsKwNTMnNDYuMCJX!5e0!3m2!1ses-419!2smx!4v1718510955499!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            
+            <p><strong>Después acompáñame en:</strong><br>Salón "Sayuri"<br>Calle Camino al Sumidero #3, Col. Lomas de Casa Blanca Sector Higueras.</p>
+            <div class="location">
+                <!-- Aquí puedes insertar el mapa de Google Maps -->
+                <!-- Ejemplo de cuadro para ubicación de Google Maps -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d234.98409070564426!2d-96.894385!3d19.552539!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDMzJzA5LjMiTiA5NsKwNTMnMzkuNSJX!5e0!3m2!1ses-419!2smx!4v1718510987790!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+            </div>
+            
+            <!-- Aquí puedes poner el código para el tiempo que falta -->
+            <div class="countdown">
+                <div class="countdown-item" id="days">
+                    0<span class="countdown-label">días</span>
+                </div>
+                <div class="countdown-item" id="hours">
+                    0<span class="countdown-label">horas</span>
+                </div>
+                <div class="countdown-item" id="minutes">
+                    0<span class="countdown-label">minutos</span>
+                </div>
+                <div class="countdown-item" id="seconds">
+                    0<span class="countdown-label">segundos</span>
+                </div>
+            </div>
+
+            <p>Espero contar con tu presencia para compartir juntos este momento inolvidable.</p>
+            <a href="https://walink.co/1bbe53" class="rsvp-btn">Confirmar asistencia</a>
+        </div>
+        <div class="footer">
+            <p style="font-size: 2.5em">Con mucho cariño</p>
+            <P style="font-size: 2.5em"><em>Danna Saireth</em</P>
+        </div>
+    </div>
+
+    <audio id="myAudio" autoplay loop>
+        <source src="bondadDeDios.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+
+
+    <!--     ----------------------  S     C      R      I     P    T    ----------------------     -->
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        var countdownDate = new Date("July 14, 2024 12:30:00").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countdownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days + "<br><span class='countdown-label'>días</span>";
+            document.getElementById("hours").innerHTML = hours + "<br><span class='countdown-label'>horas</span>";
+            document.getElementById("minutes").innerHTML = minutes + "<br><span class='countdown-label'>minutos</span>";
+            document.getElementById("seconds").innerHTML = seconds + "<br><span class='countdown-label'>segundos</span>";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "¡El evento ha comenzado!";
+            }
+        }, 1000);
+
+        document.addEventListener("click", function() {
+             var audio = document.getElementById("myAudio");
+             audio.play();
+        });
+
+        function playAudio() {
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+        var fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(function(element) {
+            setTimeout(function() {
+                element.style.opacity = '1';
+            }, 200); // Ajusta el valor según lo necesario para la apariencia deseada
+        });
+    });
+    </script>
+</body>
+</html>
