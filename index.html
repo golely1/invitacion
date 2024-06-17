@@ -44,7 +44,7 @@
         }
         .header h1 {
             margin: 0;
-            font-size: 10em;
+            font-size: 18em;
             font-weight: normal;
             font-family: 'Dancing Script', cursive; /* Fuente Dancing Script */
             text-align: center;
@@ -94,6 +94,22 @@
             .footer {
                 padding: 20px;
             }
+
+            iframe {
+                width: 100%;
+                height: auto;
+            }
+            .countdown-container {
+                display: flex;
+                flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+                align-items: center; /* Centrar horizontalmente */
+            }
+
+            .countdown-item {
+                width: 100%; /* Ajustar el ancho al 100% */
+                margin: 5px 0; /* Espaciado vertical entre elementos */
+                font-size: 1em; /* Reducir el tamaño de fuente */
+            }
         }
 
         /* Estilo para el contenedor del verso */
@@ -104,8 +120,13 @@
             border-radius: 10px; /* Bordes redondeados */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
         }
-
-        /* Estilos adicionales para los elementos de texto dentro del contenedor */
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            margin-bottom: 20px;
+        }
+                /* Estilos adicionales para los elementos de texto dentro del contenedor */
         .verse-container p {
             font-size: 1.2em;
             line-height: 1.8;
@@ -118,11 +139,9 @@
             transition: opacity 5s ease-in-out; /* Transición suave */
         }
         .slideshow-container {
-            max-width: 100%;
             position: relative;
+            max-width: 100%;
             margin: auto;
-            overflow: hidden;
-            border-radius: 10px;
         }
         .mySlides {
             display: none;
@@ -131,6 +150,22 @@
         .slideshow-img {
             width: 100%;
             height: auto;
+        }
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
         }
         .prev, .next {
             cursor: pointer;
@@ -170,7 +205,18 @@
             justify-content: center;
             align-items: center;
             font-family: 'Comfortaa', cursive; /* Fuente Comfortaa para la cuenta regresiva */
-        }     
+        }    
+        /* Estilos del contador */
+        .countdown-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 100%; /* Asegura que el contenedor no se extienda más allá del ancho de la pantalla */
+            background-color: #b57edc;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Comfortaa', cursive;
+        } 
         .countdown-item {
             text-align: center;
             margin: 0 10px;
@@ -178,6 +224,12 @@
             padding: 10px; /* Espacio interno */
             border-radius: 5px; /* Bordes redondeados */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            flex: 1; /* Distribución equitativa en dispositivos grandes */
+        }
+        .countdown-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block; /* Asegura que los números no se superpongan */
         }
         .countdown-label {
             font-size: 1.5em;
@@ -204,6 +256,21 @@
         #myAudio {
             display: none; /* Oculta el elemento de audio */
         }
+        
+        /* Estilos para el icono de altavoz */
+.speaker-icon {
+    position: absolute;
+    top: 50%; /* Ajusta la posición verticalmente */
+    right: 50%; /* Ajusta la posición horizontalmente */
+    transform: translate(50%, -50%); /* Centra el icono */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 2; /* Asegura que esté encima del texto */
+}
+
+.speaker-icon img {
+    width: 100px; /* Ajusta el tamaño del icono según tus necesidades */
+    height: auto;
+}
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
@@ -214,6 +281,10 @@
     <div class="container">
         <div class="header">
             <h1>Danna</h1>
+            <!-- Icono de altavoz aquí -->
+            <div class="speaker-icon" onclick="toggleAudio()">
+                <img src="boton-de-play.png" alt="Icono de Altavoz">
+            </div>
         </div>
         <div class="content fade-in">
             <h1 style="font-size: 2em;  color: #b57edc; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"><em>Te invito a celebrar mis XV años</em></h1>
@@ -260,9 +331,9 @@
                     <img src="13.JPG" class="slideshow-img">
                 </div>
                 
-                <!-- Botones de navegación -->
+                <!-- Botones de navegación 
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
             </div>
             <p>Es muy importante para mí tener la bendición de Dios:</p>
             <div class="verse-container">
@@ -290,20 +361,24 @@
             </div>
             
             <!-- Aquí puedes poner el código para el tiempo que falta -->
-            <div class="countdown">
-                <div class="countdown-item" id="days">
-                    0<span class="countdown-label">días</span>
-                </div>
-                <div class="countdown-item" id="hours">
-                    0<span class="countdown-label">horas</span>
-                </div>
-                <div class="countdown-item" id="minutes">
-                    0<span class="countdown-label">minutos</span>
-                </div>
-                <div class="countdown-item" id="seconds">
-                    0<span class="countdown-label">segundos</span>
-                </div>
-            </div>
+<div class="countdown">
+    <div class="countdown-item">
+        <div id="days" class="countdown-number">0</div>
+        <span class="countdown-label">días</span>
+    </div>
+    <div class="countdown-item">
+        <div id="hours" class="countdown-number">0</div>
+        <span class="countdown-label">horas</span>
+    </div>
+    <div class="countdown-item">
+        <div id="minutes" class="countdown-number">0</div>
+        <span class="countdown-label">minutos</span>
+    </div>
+    <div class="countdown-item">
+        <div id="seconds" class="countdown-number">0</div>
+        <span class="countdown-label">segundos</span>
+    </div>
+</div>
 
             <p>Espero contar con tu presencia para compartir juntos este momento inolvidable.</p>
             <a href="https://walink.co/1bbe53" class="rsvp-btn">Confirmar asistencia</a>
@@ -315,7 +390,7 @@
     </div>
 
     <audio id="myAudio" autoplay loop>
-        <source src="bondadDeDios.mp3" type="audio/mpeg">
+        <source src="Bondad de Dios Violin.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
@@ -323,64 +398,85 @@
 
     <!--     ----------------------  S     C      R      I     P    T    ----------------------     -->
     <script>
-        var slideIndex = 1;
-        showSlides(slideIndex);
+        let slideIndex = 0;
+        showSlides();
 
+        /*
         function plusSlides(n) {
             showSlides(slideIndex += n);
-        }
+        } */
 
         function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
             for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+                slides[i].style.display = "none";  
             }
-            slides[slideIndex - 1].style.display = "block";
+            slideIndex++;
+            if (slideIndex > slides.length) 
+            {
+                slideIndex = 1
+            }    
+                slides[slideIndex-1].style.display = "block";  
+                setTimeout(showSlides, 6000); // Cambia la imagen cada 5 segundos
+    
         }
 
         var countdownDate = new Date("July 14, 2024 12:30:00").getTime();
 
-        var x = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = countdownDate - now;
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countdownDate - now;
 
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerHTML = days + "<br><span class='countdown-label'>días</span>";
-            document.getElementById("hours").innerHTML = hours + "<br><span class='countdown-label'>horas</span>";
-            document.getElementById("minutes").innerHTML = minutes + "<br><span class='countdown-label'>minutos</span>";
-            document.getElementById("seconds").innerHTML = seconds + "<br><span class='countdown-label'>segundos</span>";
+    // Actualización de los elementos HTML con la cuenta regresiva
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
 
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "¡El evento ha comenzado!";
-            }
-        }, 1000);
+    // Cuando la cuenta regresiva llega a cero, se puede mostrar un mensaje
+    if (distance < 0) {
+        clearInterval(x); // Detener la actualización
+        document.getElementById("days").innerHTML = '0';
+        document.getElementById("hours").innerHTML = '0';
+        document.getElementById("minutes").innerHTML = '0';
+        document.getElementById("seconds").innerHTML = '0';
+        // Puedes mostrar un mensaje adicional si lo deseas
+    }
+}, 1000);
 
-        document.addEventListener("click", function() {
-             var audio = document.getElementById("myAudio");
-             audio.play();
-        });
-
-        function playAudio() {
+    // Función para reproducir el audio cuando se hace clic en cualquier parte de la página
+    document.addEventListener("click", function() {
             var audio = document.getElementById("myAudio");
             audio.play();
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-        var fadeElements = document.querySelectorAll('.fade-in');
-        fadeElements.forEach(function(element) {
-            setTimeout(function() {
-                element.style.opacity = '1';
-            }, 200); // Ajusta el valor según lo necesario para la apariencia deseada
         });
-    });
+
+        // Código adicional aquí, como animaciones fade-in u otras funcionalidades
+        document.addEventListener("DOMContentLoaded", function() {
+            var fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(function(element) {
+                setTimeout(function() {
+                    element.style.opacity = '1';
+                }, 200); // Ajusta el valor según lo necesario para la apariencia deseada
+            });
+        });
+
+
+
+        function toggleAudio() {
+            var audio = document.getElementById("myAudio");
+            if (audio.paused) {
+                audio.play();
+                document.querySelector('.speaker-icon').style.display = 'none'; // Oculta el icono al reproducir
+            } else {
+                audio.pause();
+            }
+        }
     </script>
 </body>
 </html>
