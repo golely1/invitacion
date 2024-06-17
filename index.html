@@ -99,17 +99,27 @@
                 width: 100%;
                 height: auto;
             }
-            .countdown-container {
-                display: flex;
-                flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
-                align-items: center; /* Centrar horizontalmente */
-            }
-
             .countdown-item {
-                width: 100%; /* Ajustar el ancho al 100% */
-                margin: 5px 0; /* Espaciado vertical entre elementos */
-                font-size: 1em; /* Reducir el tamaño de fuente */
-            }
+        text-align: center;
+        margin: 0 10px;
+        background-color: #f0e0f0; /* Color de fondo */
+        padding: 5px; /* Espacio interno */
+        border-radius: 5px; /* Bordes redondeados */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra */
+        flex: 1; /* Distribución equitativa en dispositivos grandes */
+    }
+
+    .countdown-number {
+        font-size: 1em; /* Tamaño de fuente más pequeño para dispositivos móviles */
+        font-weight: bold;
+        display: block; /* Asegura que los números no se superpongan */
+    }
+
+    .countdown-label {
+        font-size: 0.5em; /* Tamaño de fuente para las etiquetas (días, horas, etc.) */
+        color: #a15fa7;
+        text-transform: uppercase;
+    }
         }
 
         /* Estilo para el contenedor del verso */
