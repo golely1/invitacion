@@ -99,35 +99,32 @@
                 width: 100%;
                 height: auto;
             }
-            .countdown-item {
-        text-align: center;
-        margin: 0 10px;
-        background-color: #f0e0f0; /* Color de fondo */
-        padding: 5px; /* Espacio interno */
-        border-radius: 5px; /* Bordes redondeados */
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra */
-        flex: 1; /* Distribución equitativa en dispositivos grandes */
+            .countdown {
+        font-size: 1em; /* Reducción del tamaño de fuente en dispositivos móviles */
+    }
+
+    .countdown-item {
+        font-size: 0.5em; /* Reducción del tamaño de fuente en dispositivos móviles */
+        padding: 8px 10px; /* Ajuste del espaciado interno */
+        margin: 0 2px; /* Reducción del margen a los lados en dispositivos móviles */
     }
 
     .countdown-number {
-        font-size: 1em; /* Tamaño de fuente más pequeño para dispositivos móviles */
-        font-weight: bold;
-        display: block; /* Asegura que los números no se superpongan */
+        font-size: 1em; /* Tamaño de fuente ajustado para números en dispositivos móviles */
     }
 
     .countdown-label {
-        font-size: 0.5em; /* Tamaño de fuente para las etiquetas (días, horas, etc.) */
-        color: #a15fa7;
-        text-transform: uppercase;
+        font-size: 0.6em; /* Tamaño de fuente ajustado para etiquetas en dispositivos móviles */
     }
-        }
+    }
+        
 
         /* Estilo para el contenedor del verso */
         .verse-container {
             margin-top: 20px;
             padding: 20px;
             background-color: #f0e0f0; /* Color de fondo */
-            border-radius: 10px; /* Bordes redondeados */
+            border-radius: 5px; /* Bordes redondeados */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
         }
         iframe {
@@ -207,15 +204,7 @@
             border: 1px solid #ccc;
             padding: 10px;
         }
-        .countdown {
-            margin-top: 20px;
-            font-size: 2em;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Comfortaa', cursive; /* Fuente Comfortaa para la cuenta regresiva */
-        }    
+        
         /* Estilos del contador */
         .countdown-container {
             display: flex;
@@ -227,25 +216,38 @@
             color: white;
             font-family: 'Comfortaa', cursive;
         } 
-        .countdown-item {
-            text-align: center;
-            margin: 0 10px;
-            background-color: #f0e0f0; /* Color de fondo */
-            padding: 10px; /* Espacio interno */
-            border-radius: 5px; /* Bordes redondeados */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
-            flex: 1; /* Distribución equitativa en dispositivos grandes */
-        }
-        .countdown-number {
-            font-size: 2em;
-            font-weight: bold;
-            display: block; /* Asegura que los números no se superpongan */
-        }
-        .countdown-label {
-            font-size: 1.5em;
-            color: #a15fa7;
-            text-transform: uppercase;
-        }
+        /* Estilos para el contenedor de la cuenta regresiva */
+.countdown {
+    margin-top: 0px;
+    font-size: 2em; /* Tamaño de fuente base */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comfortaa', cursive; /* Fuente Comfortaa para la cuenta regresiva */
+}
+
+/* Estilos para cada elemento de la cuenta regresiva */
+.countdown-item {
+    text-align: center;
+    margin: 0 1px; /* Margen a los lados de cada elemento */
+    background-color: #f0e0f0; /* Color de fondo */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.countdown-number {
+    font-size: 2em; /* Tamaño de fuente para los números */
+    font-weight: bold;
+    display: block; /* Asegura que los números no se superpongan */
+}
+
+.countdown-label {
+    font-size: 1em; /* Tamaño de fuente para las etiquetas (días, horas, etc.) */
+    color: #a15fa7;
+    text-transform: uppercase;
+}
         /* Estilo adicional para los elementos de la cuenta regresiva */
         .countdown-item span {
             display: block;
@@ -371,24 +373,25 @@
             </div>
             
             <!-- Aquí puedes poner el código para el tiempo que falta -->
-<div class="countdown">
-    <div class="countdown-item">
-        <div id="days" class="countdown-number">0</div>
-        <span class="countdown-label">días</span>
-    </div>
-    <div class="countdown-item">
-        <div id="hours" class="countdown-number">0</div>
-        <span class="countdown-label">horas</span>
-    </div>
-    <div class="countdown-item">
-        <div id="minutes" class="countdown-number">0</div>
-        <span class="countdown-label">minutos</span>
-    </div>
-    <div class="countdown-item">
-        <div id="seconds" class="countdown-number">0</div>
-        <span class="countdown-label">segundos</span>
-    </div>
-</div>
+            <!-- Contador -->
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">0</div>
+                <div class="countdown-label">Días</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">0</div>
+                <div class="countdown-label">Horas</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">0</div>
+                <div class="countdown-label">Minutos</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">0</div>
+                <div class="countdown-label">Segundos</div>
+            </div>
+        </div>
 
             <p>Espero contar con tu presencia para compartir juntos este momento inolvidable.</p>
             <a href="https://walink.co/1bbe53" class="rsvp-btn">Confirmar asistencia</a>
@@ -432,7 +435,12 @@
     
         }
 
-        var countdownDate = new Date("July 14, 2024 12:30:00").getTime();
+        // Función de cuenta regresiva
+        // Fecha y hora del evento
+var countdownDate = new Date("July 14, 2024 12:30:00").getTime();
+
+// Código corregido para la cuenta regresiva
+var countdownDate = new Date("July 14, 2024 12:30:00").getTime();
 
 var x = setInterval(function() {
     var now = new Date().getTime();
