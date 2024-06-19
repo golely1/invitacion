@@ -100,23 +100,23 @@
                 height: auto;
             }
             .countdown {
-        font-size: 1em; /* Reducción del tamaño de fuente en dispositivos móviles */
-    }
+                font-size: 1em; /* Reducción del tamaño de fuente en dispositivos móviles */
+            }
 
-    .countdown-item {
-        font-size: 0.5em; /* Reducción del tamaño de fuente en dispositivos móviles */
-        padding: 8px 10px; /* Ajuste del espaciado interno */
-        margin: 0 2px; /* Reducción del margen a los lados en dispositivos móviles */
-    }
+            .countdown-item {
+                font-size: 0.5em; /* Reducción del tamaño de fuente en dispositivos móviles */
+                padding: 8px 10px; /* Ajuste del espaciado interno */
+                margin: 0 2px; /* Reducción del margen a los lados en dispositivos móviles */
+            }
 
-    .countdown-number {
-        font-size: 1em; /* Tamaño de fuente ajustado para números en dispositivos móviles */
-    }
+            .countdown-number {
+                font-size: 1em; /* Tamaño de fuente ajustado para números en dispositivos móviles */
+            }
 
-    .countdown-label {
-        font-size: 0.6em; /* Tamaño de fuente ajustado para etiquetas en dispositivos móviles */
-    }
-    }
+            .countdown-label {
+                font-size: 0.6em; /* Tamaño de fuente ajustado para etiquetas en dispositivos móviles */
+            }
+        }
         
 
         /* Estilo para el contenedor del verso */
@@ -217,37 +217,37 @@
             font-family: 'Comfortaa', cursive;
         } 
         /* Estilos para el contenedor de la cuenta regresiva */
-.countdown {
-    margin-top: 0px;
-    font-size: 2em; /* Tamaño de fuente base */
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Comfortaa', cursive; /* Fuente Comfortaa para la cuenta regresiva */
-}
+        .countdown {
+            margin-top: 0px;
+            font-size: 2em; /* Tamaño de fuente base */
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comfortaa', cursive; /* Fuente Comfortaa para la cuenta regresiva */
+        }
 
-/* Estilos para cada elemento de la cuenta regresiva */
-.countdown-item {
-    text-align: center;
-    margin: 0 0px; /* Margen a los lados de cada elemento */
-    background-color: #ad82ad; /* Color de fondo */
-    padding: 5px 10px; /* Espaciado interno */
-    border-radius: 2px; /* Bordes redondeados */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra */
-}
+        /* Estilos para cada elemento de la cuenta regresiva */
+           .countdown-item {
+            text-align: center;
+            margin: 0 0px; /* Margen a los lados de cada elemento */
+            background-color: #ad82ad; /* Color de fondo */
+            padding: 5px 10px; /* Espaciado interno */
+            border-radius: 2px; /* Bordes redondeados */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
 
-.countdown-number {
-    font-size: 2em; /* Tamaño de fuente para los números */
-    font-weight: bold;
-    display: block; /* Asegura que los números no se superpongan */
-}
+        .countdown-number {
+            font-size: 2em; /* Tamaño de fuente para los números */
+            font-weight: bold;
+            display: block; /* Asegura que los números no se superpongan */
+        }
 
-.countdown-label {
-    font-size: 1em; /* Tamaño de fuente para las etiquetas (días, horas, etc.) */
-    color: #ffffff;
-    text-transform: uppercase;
-}
+        .countdown-label {
+            font-size: 1em; /* Tamaño de fuente para las etiquetas (días, horas, etc.) */
+            color: #ffffff;
+            text-transform: uppercase;
+        }
         /* Estilo adicional para los elementos de la cuenta regresiva */
         .countdown-item span {
             display: block;
@@ -270,19 +270,35 @@
         }
         
         /* Estilos para el icono de altavoz */
-.speaker-icon {
-    position: absolute;
-    top: 50%; /* Ajusta la posición verticalmente */
-    right: 50%; /* Ajusta la posición horizontalmente */
-    transform: translate(50%, -50%); /* Centra el icono */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    z-index: 2; /* Asegura que esté encima del texto */
-}
+        .speaker-icon {
+            position: absolute;
+            top: 50%; /* Ajusta la posición verticalmente */
+            right: 50%; /* Ajusta la posición horizontalmente */
+            transform: translate(50%, -50%); /* Centra el icono */
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
+            z-index: 2; /* Asegura que esté encima del texto */
+        }
 
-.speaker-icon img {
-    width: 100px; /* Ajusta el tamaño del icono según tus necesidades */
-    height: auto;
-}
+        .speaker-icon img {
+            width: 100px; /* Ajusta el tamaño del icono según tus necesidades */
+            height: auto;
+        }
+
+        .rsvp-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.7em;
+            color: white;
+            background-color: #b57edc;
+            border: none;
+            border-radius: 7px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .rsvp-btn:hover {
+            background-color: #a04cc4;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
@@ -353,7 +369,7 @@
                 <p><strong><em>Salmos 139: 13 y 14.</strong></em></p>
             </div>
             <!-- <p><strong>Domingo</strong><br>14 de Julio de 2024<br>12:30 hrs</p> -->
-            <p style="font-size: 2em; font-weight: bold; color: #b57edc; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Domingo <br> 14 de Julio del 2024</p>
+            <p style="font-size: 2em; font-weight: bold; color: #b57edc; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Domingo <br> 14 de Julio del 2024 <br> 12:30 hrs</p>
 
             
             <p><strong>Acompáñame en:</strong><br>Iglesia "Sardis"<br>Av. Antonio Chedraui Caram #26 - Col. Casa Blanca.</p>
@@ -363,15 +379,15 @@
                 <!-- Aquí puedes insertar el mapa de Google Maps -->
                 <!-- Ejemplo de cuadro para ubicación de Google Maps -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d235.00023083215407!2d-96.896104!3d19.541455!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDMyJzI5LjEiTiA5NsKwNTMnNDYuMCJX!5e0!3m2!1ses-419!2smx!4v1718510955499!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                </div> <br>
             
-            <p><strong>Después acompáñame en:</strong><br>Salón "Sayuri"<br>Calle Camino al Sumidero #3, Col. Lomas de Casa Blanca Sector Higueras.</p>
-            <div class="location">
-                <!-- Aquí puedes insertar el mapa de Google Maps -->
-                <!-- Ejemplo de cuadro para ubicación de Google Maps -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d234.98409070564426!2d-96.894385!3d19.552539!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDMzJzA5LjMiTiA5NsKwNTMnMzkuNSJX!5e0!3m2!1ses-419!2smx!4v1718510987790!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
-            </div>
-            
+                <p style="font-size: 1.5em"><strong>Después acompáñame a las 2:00 PM en:</strong> <br>Salón "Sayuri"<br>Calle Camino al Sumidero #3, Col. Lomas de Casa Blanca Sector Higueras.</p>
+        <div class="location">
+            <!-- Aquí puedes insertar el mapa" de Google Maps -->
+            <!-- Ejemplo de cuadro para ubicación de Google Maps -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d234.98409070564426!2d-96.894385!3d19.552539!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDMzJzA5LjMiTiA5NsKwNTMnMzkuNSJX!5e0!3m2!1ses-419!2smx!4v1718510987790!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+        </div> <br>
+
             <!-- Aquí puedes poner el código para el tiempo que falta -->
             <!-- Contador -->
             <p>¡Ya solo falta!</p> 
@@ -393,14 +409,17 @@
                 <div class="countdown-number" id="seconds">0</div>
                 <div class="countdown-label">Segundos</div>
             </div>
+            <br>
         </div>
+
+        
 
             <p>Espero contar con tu presencia para compartir juntos este momento inolvidable.</p>
             <a href="https://walink.co/1bbe53" class="rsvp-btn">Confirmar asistencia</a>
         </div>
         <div class="footer">
             <p style="font-size: 2.5em">Con mucho cariño</p>
-            <P style="font-size: 2.5em"><em>Danna Saireth</em</P>
+            <P style="font-size: 2.5em"><em>💜Danna Saireth💜</em</P>
         </div>
     </div>
 
